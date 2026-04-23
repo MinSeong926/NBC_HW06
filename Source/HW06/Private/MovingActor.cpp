@@ -1,0 +1,33 @@
+
+#include "MovingActor.h"
+#include "Components/StaticMeshComponent.h"
+
+AMovingActor::AMovingActor()
+{
+	Body = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Body"));
+
+	PrimaryActorTick.bCanEverTick = true;
+
+	MoveDirection = 1.f;
+	//MoveDirection = -1.f;
+	MoveSpeed = 1.f;
+	AccumulatedDistance = 0.0f;
+
+	StartLocation = GetActorLocation();
+	MaxRange = 100.f;
+}
+
+void AMovingActor::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	//AddActorLocalOffset(FVector(0.f, MoveSpeed * MoveDirection, 0.f));
+
+	AccumulatedDistance += MoveSpeed;
+	if (MaxRange < AccumulatedDistance) {
+		MoveDirection *= -1.f;
+		AccumulatedDistance = 0.f;
+	}
+
+	AddActorLocalOffset(FVector(0.f, MoveSpeed * MoveDirection * DeltaTime, 0.f));
+}
