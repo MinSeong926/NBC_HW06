@@ -1,3 +1,4 @@
+// RotatingActor.cpp
 
 #include "RotatingActor.h"
 #include "Components/StaticMeshComponent.h"
@@ -15,3 +16,4 @@ void ARotatingActor::Tick(float DeltaTime)
 
 	AddActorLocalRotation(FRotator(0.f, 1.f, 0.f));
 }
+
