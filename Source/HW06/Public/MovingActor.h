@@ -11,6 +11,12 @@ UCLASS()
 class HW06_API AMovingActor : public AActor
 {
 	GENERATED_BODY()
+
+protected:
+	virtual void BeginPlay() override;
+
+	FTimerHandle TeleportTimerHandle;
+	void TeleportRandomly();
 	
 public:
 	AMovingActor();

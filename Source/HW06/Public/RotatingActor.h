@@ -12,6 +12,12 @@ class HW06_API ARotatingActor : public AActor
 {
 	GENERATED_BODY()
 
+protected:
+	virtual void BeginPlay() override;
+
+	FTimerHandle TeleportTimerHandle;
+	void TeleportRandomly();
+
 public:
 	ARotatingActor();
 
