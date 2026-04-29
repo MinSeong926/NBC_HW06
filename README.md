@@ -11,3 +11,5 @@
 [도전 기능]
 1. 타이머 시스템 활용
 2. 랜덤 퍼즐 생성
+
+[시연 영상] https://www.youtube.com/watch?v=LwHHxzHITro
